@@ -80,6 +80,16 @@ var myVariants = new VariantsModifier ({
 </form>
 ```
 
+## Селекторы/дата атрибуты
+
+- `data-product-price` - для цены 
+
+- `data-product-old-price` - для старой цены
+
+- `sku` - для артикула
+
+- `available` - для сообшения о доступности
+
 ## templates
 
 В templates `%s%` заменяется на значение из варианта.
