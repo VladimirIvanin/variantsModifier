@@ -2,6 +2,12 @@
 
 > Совместимо только с common.js v2
 
+## CDN
+
+```
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.2.0/dist/variantsModifier.js"></script>
+```
+
 ```js
 var myVariants = new VariantsModifier ({
   templates: {
