@@ -5,7 +5,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.2.0/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.3.0/dist/variantsModifier.js"></script>
 ```
 
 ```js
@@ -28,21 +28,40 @@ var myVariants = new VariantsModifier ({
     notAvailable: 'not-available'
   },
   thumbSize: 'compact',
-  thumbWrap: 'div',
+  thumbWrap: '.js-image-variant',
+  initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
   useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
-  updatePrice: function () {}, // (data, $form)
-  updateOldPrice: function () {}, // (data, $form)
-  updateAvailable: function () {}, // (data, $form)
-  updateSku: function () {}, // (data, $form)
-  updateImage: function () {}, // (data, $form, $images, first_image, $links)
-  updateVariant: function () {} // (data, $form)
+  updateImage: function (data, $form, $images, first_image, $links) {
+    console.log(data, $form, $images, first_image, $links);
+  },
+  updateVariant: function (data, $form) {
+    console.log(data, $form, $images, first_image, $links);
+  }
 });
+
+// есть метод для установки варианта по картинке
+// $form - селектор формы товара
+// src - ссылка на картинку варианта
+myVariants.setVariantByImage({
+  $form: $('#product-form'),
+  src: 'https://static-eu.insales.ru/images/products/1/2587/85207579/variant_image.jpg'
+});
+
+// Пример для слайдера swiper
+var galleryTop = new Swiper('.gallery-top', {
+  onTransitionEnd: function (e) {
+    myVariants.setVariantByImage({
+      $form: $('#product-form'),
+      src: $(e.slides[e.activeIndex]).find('img').attr('src')
+    })
+  }
+})
 ```
 
 ```html
-<form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
+<form id="product-form" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
 
   <div class="product-available" data-product-available>
     {% if product.available %}

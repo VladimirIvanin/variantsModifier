@@ -1,3 +1,5 @@
+var setVariantByImage = require('./setVariantByImage');
+
 function renderPrice(data) {
   var self = this;
   var $price = self.$price;
@@ -95,6 +97,7 @@ function renderImage(data) {
   var options = self.options;
   var first_image = data.first_image;
   var filename = data.first_image.filename;
+
   var $links = $('[href*="'+filename+'"]');
   var $images = {
     $all: $('[src*="'+filename+'"]'),
@@ -106,7 +109,7 @@ function renderImage(data) {
     $originals: $('[src$="'+filename+'"]')
   }
 
-  if (options.useTriggerThumb) {
+  if (options.useTriggerThumb && self.isInitImage) {
     var thumbSize = options.thumbSize;
     var thumbWrap = options.thumbWrap;
     var event = jQuery.Event( 'click' );
@@ -114,6 +117,8 @@ function renderImage(data) {
     var $trigger =   $(''+thumbWrap+' [src*="'+thumbSize+'_'+filename+'"]').eq(0).parents(thumbWrap+':first');
     $trigger.trigger( event );
   }
+
+  self.isInitImage = true;
 
   self.options.updateImage(data, self.$form, $images, first_image, $links);
 }

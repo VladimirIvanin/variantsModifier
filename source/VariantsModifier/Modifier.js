@@ -22,6 +22,12 @@ function Modifier ($form, options, action) {
   self.renderSku = renderSku;
   self.renderImage = renderImage;
 
+  self.isInitImage = false;
+
+  if (options.initVariantImage) {
+    self.isInitImage = true;
+  }
+
   self.initElements();
   self.bindingVariants();
 }

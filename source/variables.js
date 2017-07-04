@@ -23,7 +23,8 @@ var defaults = {
     notAvailable: 'not-available'
   },
   thumbSize: 'compact',
-  thumbWrap: 'div',
+  thumbWrap: '.js-image-variant',
+  initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
   useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
