@@ -23,7 +23,7 @@ var myVariants = new VariantsModifier ({
     withOldPrice: 'with-old-price',
     withoutOldPrice: 'without-old-price',
     withSku: 'with-sku',
-    withoutOldPrice: 'without-sku',
+    withoutSku: 'without-sku',
     isAvailable: 'is-available',
     notAvailable: 'not-available'
   },
