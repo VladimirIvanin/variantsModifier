@@ -1,0 +1,26 @@
+source: source/index.js
+dist: dist/variantsModifier.js
+
+bfPlugins:
+  - name: errorify
+  - name: browserify-banner
+    options:
+      file: dist/variantsModifier.js
+      template: "<%= pkg.name %> v<%= pkg.version %>\n<%= pkg.url %>\n<%= pkg.author.name %>\n<%= moment().year() %>"
+      pkg:
+        name: 'VariantsModifier'
+        version: '0.1.0'
+        url: https://github.com/VladimirIvanin/VariantsModifier
+        author:
+          name: 'Vladimir Ivanin'
+
+bfTransforms:
+  - name: eslintify
+    options:
+      passthrough: [ 'errors', 'warnings' ]
+  - name: jstify
+    options:
+      engine: global
+  - name: uglifyify
+    options:
+      sourceMap: false
