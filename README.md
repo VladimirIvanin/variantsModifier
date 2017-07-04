@@ -1,5 +1,7 @@
 # Плагин для обновления информации товара на платформе InSales
 
+> Совместимо только с common.js v2
+
 ```js
 var myVariants = new VariantsModifier ({
   templates: {
@@ -82,7 +84,7 @@ var myVariants = new VariantsModifier ({
 
 ## Селекторы/дата атрибуты
 
-- `data-product-price` - для цены 
+- `data-product-price` - для цены
 
 - `data-product-old-price` - для старой цены
 
