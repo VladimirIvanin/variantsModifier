@@ -13,11 +13,13 @@ function bindingVariants() {
       if (!_thumbs[filename]) {
         _thumbs[filename] = true;
         $trigger.click(function(event) {
-          self.activeImage = filename;
-          if (!event.isModifier) {
-            Products.getInstance(productInstance).done(function (_product) {
-              _product.variants.setVariant(el.id);
-            })
+          if (self.activeImage != filename) {
+            self.activeImage = filename;
+            if (!event.isModifier) {
+              Products.getInstance(productInstance).done(function (_product) {
+                _product.variants.setVariant(el.id);
+              })
+            }
           }
         });
       }

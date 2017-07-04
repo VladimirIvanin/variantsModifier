@@ -23,11 +23,15 @@ function setVariantByImage(options) {
     };
   });
 
-  if (variantId && file !== ModifierInstance.activeImage) {
-    Products.getInstance(ModifierInstance.productInstance).done(function (_product) {
-      ModifierInstance.activeImage = file;
-      _product.variants.setVariant(variantId);
-    })
+  if (!ModifierInstance.inProcess) {
+    if (variantId && file !== ModifierInstance.activeImage) {
+      ModifierInstance.inProcess = true;
+      Products.getInstance(ModifierInstance.productInstance).done(function (_product) {
+        ModifierInstance.inProcess = false;
+        ModifierInstance.activeImage = file;
+        _product.variants.setVariant(variantId);
+      })
+    }
   }
 }
 
