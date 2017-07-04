@@ -90,7 +90,7 @@ var myVariants = new VariantsModifier ({
 
 - `data-product-sku` - для артикула
 
-- `data-product-available` - для сообшения о доступности
+- `data-product-available` - для сообщения о доступности
 
 ## templates
 
