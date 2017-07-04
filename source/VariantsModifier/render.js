@@ -25,13 +25,15 @@ function renderOldPrice(data) {
 
   if (data.old_price) {
     $oldPrice.html( oldPrice );
-    $form.addClass(classes.withOldPrice).removeClass(classes.withoutOldPrice);
+    $form.addClass(classes.withOldPrice)
+    $form.removeClass(classes.withoutOldPrice);
     if (options.useToggleOldPrice) {
       $oldPrice.show();
     }
   }else{
     $oldPrice.html( emptyOldPrice );
-    $form.addClass(classes.withoutOldPrice).removeClass(classes.withOldPrice);
+    $form.addClass(classes.withoutOldPrice)
+    $form.removeClass(classes.withOldPrice);
     if (options.useToggleOldPrice) {
       $oldPrice.hide();
     }
@@ -73,13 +75,13 @@ function renderSku(data) {
 
   if (data.sku) {
     $sku.html(sku);
-    $form.addClass(classes.withSku).removeClass(classes.withoutOldPrice);
+    $form.addClass(classes.withSku).removeClass(classes.withoutSku);
     if (options.useToggleSku) {
       $sku.show();
     }
   }else{
     $sku.html(emptySku);
-    $form.addClass(classes.withoutOldPrice).removeClass(classes.withSku);
+    $form.addClass(classes.withoutSku).removeClass(classes.withSku);
     if (options.useToggleSku) {
       $sku.hide();
     }
