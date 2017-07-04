@@ -5,7 +5,7 @@ function bindingVariants() {
   var thumbWrap = options.thumbWrap;
   var product = self.productJSON;
   var productInstance = self.productInstance;
-  if (product.variants && product.variants.length) {
+  if (product.variants && product.variants.length && options.useTriggerThumb) {
     var _thumbs = {};
     $.each(product.variants, function(index, el) {
       var filename = el.first_image.filename;
