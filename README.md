@@ -88,9 +88,9 @@ var myVariants = new VariantsModifier ({
 
 - `data-product-old-price` - для старой цены
 
-- `sku` - для артикула
+- `data-product-sku` - для артикула
 
-- `available` - для сообшения о доступности
+- `data-product-available` - для сообшения о доступности
 
 ## templates
 
