@@ -29,9 +29,7 @@ var defaults = {
     quantityAlot: 'is-quantity-alot',
     quantityNotAvailable: 'is-quantity-not-available'
   },
-  quantity: {
-    ends: 10 // граница между заканчивается и много
-  },
+  quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
   initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
@@ -42,6 +40,7 @@ var defaults = {
   quantityNull: 'quantityAlot', // Если кол-во не заполнено quantityEnds/quantityAlot/quantityNotAvailable
   dataParam: { // параметры первого уровня, задаются из дата атрибутов. Например data-quantity-null="quantityNotAvailable"
     quantityNull: 'quantity-null',
+    quantityEnds: 'quantity-ends',
     checkQuantytiVariant: 'check-quantity-variant'
   },
   updatePrice: function () {}, // (data, $form)

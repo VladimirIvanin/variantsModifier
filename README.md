@@ -5,7 +5,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.0/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.1/dist/variantsModifier.js"></script>
 ```
 
 ```js
@@ -33,19 +33,18 @@ var myVariants = new VariantsModifier ({
     quantityAlot: 'is-quantity-alot',
     quantityNotAvailable: 'is-quantity-not-available'
   },
-  quantity: {
-    ends: 10 // граница между заканчивается и много
-  },
+  quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
   initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
   useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
-  checkQuantytiVariant: true, // проверять остаток варианта? Иначе продукта.
+  checkQuantityVariant: true, // проверять остаток варианта? Иначе продукта.
   quantityNull: 'quantityAlot', // Если кол-во не заполнено quantityEnds/quantityAlot/quantityNotAvailable
   dataParam: { // параметры первого уровня, задаются из дата атрибутов. Например data-quantity-null="quantityNotAvailable"
     quantityNull: 'quantity-null',
+    quantityEnds: 'quantity-ends',
     checkQuantytiVariant: 'check-quantity-variant'
   },
   updateImage: function (data, $form, $images, first_image, $links) {

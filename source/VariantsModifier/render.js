@@ -20,7 +20,7 @@ function renderQuantity(data) {
     quantity = productQuantity;
   }
 
-  if (quantity <= options.quantity.ends) {
+  if (quantity <= options.quantityEnds) {
     message = templates.quantityEnds;
     activeClass = classes.quantityEnds;
   }
