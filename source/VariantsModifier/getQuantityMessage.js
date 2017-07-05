@@ -2,6 +2,7 @@
  * Получаем message и классы Quantity варианта
  * @param  {number} quantity         кол-во
  * @param  {boolean} availableVariant Доступность варианта
+ * @param  {object} _options настройки не обязательны если метод используется в инстансе
  * @return {object}                  message и классы Quantity варианта
  */
 function getQuantityMessage(quantity, availableVariant, _options) {
