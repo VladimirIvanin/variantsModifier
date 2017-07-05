@@ -11,7 +11,11 @@ function init() {
     }
 
     if ($form && $form.instanceVariantsModifier) {
-      $form.instanceVariantsModifier.updateVariant(data);
+      // Обновление варианта может быть при пересчете quantity
+      var isQuantity = data.action.quantityState.change;
+      if (!isQuantity) {
+        $form.instanceVariantsModifier.updateVariant(data);
+      }
     }
   });
 }

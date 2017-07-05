@@ -1,5 +1,5 @@
 /*!
- * VariantsModifier v0.3.2
+ * VariantsModifier v0.3.3
  * https://github.com/VladimirIvanin/VariantsModifier
  * Vladimir Ivanin
  * 2017
@@ -11,7 +11,7 @@ function bindingVariants(){var i=this,t=i.options,a=t.thumbSize,n=t.thumbWrap,e=
 },{}],3:[function(require,module,exports){
 var defaults=require("../variables").defaults,init=require("./init"),setVariantByImage=require("./setVariantByImage"),VariantsModifier=function(e){var i=this;return i.options=$.extend(!0,{},defaults,e),i.init=init,i.setVariantByImage=setVariantByImage,EventBus?i.init():console.warn("Не подключен common.js"),i};module.exports=VariantsModifier;
 },{"../variables":9,"./init":4,"./setVariantByImage":7}],4:[function(require,module,exports){
-function init(){var i=this;EventBus.subscribe("update_variant:insales:product",function(n){var t=n.action.product?n.action.product[0]:null;t&&!t.instanceVariantsModifier&&(t.instanceVariantsModifier=new Modifier($(t),i.options,n.action)),t&&t.instanceVariantsModifier&&t.instanceVariantsModifier.updateVariant(n)})}var Modifier=require("./Modifier");module.exports=init;
+function init(){var i=this;EventBus.subscribe("update_variant:insales:product",function(n){var t=n.action.product?n.action.product[0]:null;t&&!t.instanceVariantsModifier&&(t.instanceVariantsModifier=new Modifier($(t),i.options,n.action)),t&&t.instanceVariantsModifier&&(n.action.quantityState.change||t.instanceVariantsModifier.updateVariant(n))})}var Modifier=require("./Modifier");module.exports=init;
 },{"./Modifier":1}],5:[function(require,module,exports){
 function initElements(){var i=this,e=i.$form,n=i.options.selectors;i.$price=e.find(n.price),i.$oldPrice=e.find(n.oldPrice),i.$sku=e.find(n.sku),i.$available=e.find(n.available)}module.exports=initElements;
 },{}],6:[function(require,module,exports){
