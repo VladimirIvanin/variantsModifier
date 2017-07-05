@@ -8,7 +8,7 @@
 
 :pencil: возможность менять шаблоны для вывода информации на страницу
 
-:information_source: Совместимо только с common.js v2
+:information_source: совместимо только с common.js v2!
 
 ## CDN
 
@@ -162,3 +162,20 @@ var galleryTop = new Swiper('.gallery-top', {
 ## Classes
 
 Классы добавляются к форме.
+
+
+## Полезные ссылки
+
+- [Ранее просмотренные товары](https://github.com/VladimirIvanin/RecentlyView)
+
+- [Определение местоположения пользователя](https://github.com/VladimirIvanin/geoManager)
+
+- [Избранное](https://github.com/VladimirIvanin/favorites)
+
+- [Отправка сообщений](https://github.com/VladimirIvanin/InSalesFeedback)
+
+- [Утилита для работы с темами InSales на локальном диске](https://github.com/brainmurder/insales-uploader)
+
+- [Сборщик шаблонов для InSales](https://github.com/VladimirIvanin/insales-template-builder)
+
+- [Табы на jQuery](https://github.com/VladimirIvanin/dataTabs)
