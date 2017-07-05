@@ -5,7 +5,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.3.1/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.3.2/dist/variantsModifier.js"></script>
 ```
 
 ```js
@@ -44,19 +44,27 @@ var myVariants = new VariantsModifier ({
 // есть метод для установки варианта по картинке
 // $form - селектор формы товара
 // src - ссылка на картинку варианта
+// size - не обязательное поле, но чтобы не было конфликтов
+// когда в названии файла присутствуют
+// спец префиксы размеров - `original/compact/large/medium/micro/thumb`
 myVariants.setVariantByImage({
   $form: $('#product-form'),
-  src: 'https://static-eu.insales.ru/images/products/1/2587/85207579/variant_image.jpg'
+  src: 'https://static-eu.insales.ru/images/products/1/2587/85207579/variant_image.jpg',
+  size: 'original'
 });
 
 // Пример для слайдера swiper
-// setTimeout нужен для адекватного переключения вариантов, так как callback onSlideChangeEnd срабатывает после анимации, нужно откладывать выполнение функции на скорость анимации. Баг хорошо прослеживается при быстром пролистывании слайдов.
+// setTimeout нужен для адекватного переключения вариантов, так как
+// callback onSlideChangeEnd срабатывает после анимации,
+// нужно откладывать выполнение функции на скорость анимации.
+// Баг хорошо прослеживается при быстром пролистывании слайдов.
 var galleryTop = new Swiper('.gallery-top', {
   onSlideChangeEnd: function (e) {
     setTimeout(function () {
       myVariants.setVariantByImage({
         $form: $('.product-info form[data-product-id]'),
-        src: $(e.slides[e.activeIndex]).find('img').attr('src')
+        src: $(e.slides[e.activeIndex]).find('img').attr('src'),
+        size: 'original'
       })
     }, e.params.speed)
   }

@@ -1,7 +1,8 @@
 function setVariantByImage(options) {
   var $form = options.$form;
   var src = options.src;
-  var file = getFileName(src);
+  var size = options.size;
+  var file = getFileName(src, size);
 
   var _form = $form.get(0);
   if (!_form) {
@@ -36,7 +37,7 @@ function setVariantByImage(options) {
 }
 
 // compact/large/medium/micro/thumb/original
-function getFileName(src) {
+function getFileName(src, size) {
   if (typeof src != 'string') {
     src = '';
     console.warn('Передан пустой url для изображения');
@@ -47,12 +48,18 @@ function getFileName(src) {
     'compact_', 'large_', 'medium_', 'micro_', 'thumb_'
   ]
 
-  $.each(sizes, function(index, el) {
-    if (result.indexOf(el) === 0) {
-      result = result.replace(el, '');
-      return;
+  if (!size || size && size == '') {
+    $.each(sizes, function(index, el) {
+      if (result.indexOf(el) === 0) {
+        result = result.replace(el, '');
+        return;
+      }
+    });
+  }else{
+    if (size != 'original') {
+      result = result.replace(size + '_', '');
     }
-  });
+  }
 
   return result;
 }
