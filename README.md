@@ -8,13 +8,21 @@
   <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.2/dist/variantsModifier.js"></script>
 ```
 
+:flower_playing_cards: поддержка изображений варианта
+
+:no_bell: обновление варианта без событий quantity
+
+:battery: статусы остатка варианта
+
+:pencil: возможность менять шаблоны для вывода информации на страницу
+
 ```js
 var myVariants = new VariantsModifier ({
   templates: {
-    price: '%s%',
-    oldPrice: '%s%',
+    price: '%s%', // %s% - 100 руб
+    oldPrice: '%s%', // %s% - 100 руб
     emptyOldPrice: '',
-    sku: 'арт. %s%',
+    sku: 'арт. %s%', // %s% - 12345
     emptySku: '',
     available: 'Есть в наличии',
     notAvailable: 'Нет в наличии',
@@ -51,7 +59,7 @@ var myVariants = new VariantsModifier ({
     console.log(data, $form, $images, first_image, $links);
   },
   updateVariant: function (data, $form) {
-    console.log(data, $form, $images, first_image, $links);
+    console.log(data, $form);
   }
 });
 
@@ -138,7 +146,7 @@ var galleryTop = new Swiper('.gallery-top', {
 
 - `data-quantity-message` - для сообщения о статусе остатка
 
-## templates
+## Templates
 
 В templates `%s%` заменяется на значение из варианта.
 
