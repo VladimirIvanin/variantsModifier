@@ -8,7 +8,7 @@
 
 :pencil: возможность менять шаблоны для вывода информации на страницу
 
-:information_source: совместимо только с common.js v2!
+:warning: совместимо только с common.js v2!
 
 ## CDN
 
