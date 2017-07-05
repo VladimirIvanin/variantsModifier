@@ -5,7 +5,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.3.3/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.0/dist/variantsModifier.js"></script>
 ```
 
 ```js
@@ -18,6 +18,9 @@ var myVariants = new VariantsModifier ({
     emptySku: '',
     available: 'Есть в наличии',
     notAvailable: 'Нет в наличии',
+    quantityEnds: 'Заканчивается',
+    quantityAlot: 'Много',
+    quantityNotAvailable: 'Нет в наличии'
   },
   classes: {
     withOldPrice: 'with-old-price',
@@ -25,7 +28,13 @@ var myVariants = new VariantsModifier ({
     withSku: 'with-sku',
     withoutSku: 'without-sku',
     isAvailable: 'is-available',
-    notAvailable: 'not-available'
+    notAvailable: 'not-available',
+    quantityEnds: 'is-quantity-ends',
+    quantityAlot: 'is-quantity-alot',
+    quantityNotAvailable: 'is-quantity-not-available'
+  },
+  quantity: {
+    ends: 10 // граница между заканчивается и много
   },
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
@@ -33,6 +42,12 @@ var myVariants = new VariantsModifier ({
   useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
+  checkQuantytiVariant: true, // проверять остаток варианта? Иначе продукта.
+  quantityNull: 'quantityAlot', // Если кол-во не заполнено quantityEnds/quantityAlot/quantityNotAvailable
+  dataParam: { // параметры первого уровня, задаются из дата атрибутов. Например data-quantity-null="quantityNotAvailable"
+    quantityNull: 'quantity-null',
+    checkQuantytiVariant: 'check-quantity-variant'
+  },
   updateImage: function (data, $form, $images, first_image, $links) {
     console.log(data, $form, $images, first_image, $links);
   },
@@ -121,6 +136,8 @@ var galleryTop = new Swiper('.gallery-top', {
 - `data-product-sku` - для артикула
 
 - `data-product-available` - для сообщения о доступности
+
+- `data-quantity-message` - для сообщения о статусе остатка
 
 ## templates
 

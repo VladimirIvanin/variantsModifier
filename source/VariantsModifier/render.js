@@ -1,5 +1,61 @@
 var setVariantByImage = require('./setVariantByImage');
 
+function renderQuantity(data) {
+  var self = this;
+  var $quantity = self.$quantity;
+  var options = self.options;
+  var templates = options.templates;
+  var classes = options.classes;
+  var quantity = data.quantity;
+  var message = templates.quantityAlot;
+  var activeClass = classes.quantityAlot;
+
+  if (!options.checkQuantityVariant) {
+    var productQuantity = 0;
+    $.each(self.productJSON.variants, function(index, el) {
+      if (el.quantity) {
+        productQuantity += el.quantity;
+      }
+    });
+    quantity = productQuantity;
+  }
+
+  if (quantity <= options.quantity.ends) {
+    message = templates.quantityEnds;
+    activeClass = classes.quantityEnds;
+  }
+
+  if (options.checkQuantityVariant) {
+    if (!data.available) {
+      message = templates.quantityNotAvailable;
+      activeClass = classes.quantityNotAvailable;
+    }else{
+      if (quantity === null && typeof quantity === "object") {
+        message = templates[options.quantityNull];
+        activeClass = classes[options.quantityNull];
+      }
+    }
+  }else{
+    if (!self.productJSON.available) {
+      message = templates.quantityNotAvailable;
+      activeClass = classes.quantityNotAvailable;
+    }else{
+      if (quantity === 0) {
+        message = templates[options.quantityNull];
+        activeClass = classes[options.quantityNull];
+      }
+    }
+  }
+
+  var status = getTemplate(message, '');
+  $quantity
+    .removeClass(classes.quantityEnds)
+    .removeClass(classes.quantityAlot)
+    .removeClass(classes.quantityNotAvailable)
+
+  $quantity.html( status ).addClass(activeClass);
+}
+
 function renderPrice(data) {
   var self = this;
   var $price = self.$price;
@@ -134,6 +190,7 @@ function getTemplate(template, data) {
 }
 
 module.exports = {
+  'renderQuantity': renderQuantity,
   'renderPrice': renderPrice,
   'renderOldPrice': renderOldPrice,
   'renderAvailable': renderAvailable,

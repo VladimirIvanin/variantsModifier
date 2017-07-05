@@ -3,8 +3,10 @@ var renderPrice = require('./render').renderPrice;
 var renderOldPrice = require('./render').renderOldPrice;
 var renderAvailable = require('./render').renderAvailable;
 var renderSku = require('./render').renderSku;
+var renderQuantity = require('./render').renderQuantity;
 var renderImage = require('./render').renderImage;
 var bindingVariants = require('./bindingVariants');
+var getDataParam = require('./getDataParam');
 
 function Modifier ($form, options, action) {
   var self = this;
@@ -20,7 +22,9 @@ function Modifier ($form, options, action) {
   self.renderOldPrice = renderOldPrice;
   self.renderAvailable = renderAvailable;
   self.renderSku = renderSku;
+  self.renderQuantity = renderQuantity;
   self.renderImage = renderImage;
+  self.getDataParam = getDataParam;
 
   self.isInitImage = false;
 
@@ -28,6 +32,8 @@ function Modifier ($form, options, action) {
     self.isInitImage = true;
   }
 
+  self.getDataParam();
+  self.initElements();
   self.initElements();
   self.bindingVariants();
 }
@@ -36,12 +42,13 @@ Modifier.prototype.updateVariant = function (data) {
   var $form = (data.action.product) ? data.action.product[0] : null;
   var self = this;
 
-  self.options.updateVariant(data, $form);
   self.renderPrice(data);
   self.renderOldPrice(data);
   self.renderAvailable(data);
   self.renderSku(data);
+  self.renderQuantity(data);
   self.renderImage(data);
+  self.options.updateVariant(data, $form);
 };
 
 module.exports = Modifier;

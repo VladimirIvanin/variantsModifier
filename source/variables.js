@@ -3,6 +3,7 @@ var defaults = {
     oldPrice: '[data-product-old-price]',
     price: '[data-product-price]',
     sku: '[data-product-sku]',
+    quantity: '[data-quantity-message]',
     available: '[data-product-available]'
   },
   templates: {
@@ -13,6 +14,9 @@ var defaults = {
     emptySku: '',
     available: 'Есть в наличии',
     notAvailable: 'Нет в наличии',
+    quantityEnds: 'Заканчивается',
+    quantityAlot: 'Много',
+    quantityNotAvailable: 'Нет в наличии'
   },
   classes: {
     withOldPrice: 'with-old-price',
@@ -20,7 +24,13 @@ var defaults = {
     withSku: 'with-sku',
     withoutSku: 'without-sku',
     isAvailable: 'is-available',
-    notAvailable: 'not-available'
+    notAvailable: 'not-available',
+    quantityEnds: 'is-quantity-ends',
+    quantityAlot: 'is-quantity-alot',
+    quantityNotAvailable: 'is-quantity-not-available'
+  },
+  quantity: {
+    ends: 10 // граница между заканчивается и много
   },
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
@@ -28,6 +38,12 @@ var defaults = {
   useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
+  checkQuantityVariant: true, // проверять остаток варианта? Иначе продукта.
+  quantityNull: 'quantityAlot', // Если кол-во не заполнено quantityEnds/quantityAlot/quantityNotAvailable
+  dataParam: { // параметры первого уровня, задаются из дата атрибутов. Например data-quantity-null="quantityNotAvailable"
+    quantityNull: 'quantity-null',
+    checkQuantytiVariant: 'check-quantity-variant'
+  },
   updatePrice: function () {}, // (data, $form)
   updateOldPrice: function () {}, // (data, $form)
   updateAvailable: function () {}, // (data, $form)
