@@ -1,41 +1,36 @@
 var setVariantByImage = require('./setVariantByImage');
+var getQuantityMessage = require('./getQuantityMessage');
 
 function renderQuantity(data) {
   var self = this;
-  var $quantity = self.$quantity;
-  var options = self.options;
-  var templates = options.templates;
-  var classes = options.classes;
   var quantity = data.quantity;
-  var message = templates.quantityAlot;
-  var activeClass = classes.quantityAlot;
+  var options = self.options;
+  var quantityStatus = getQuantityMessage(quantity, data.available, options);
 
+  var message = quantityStatus.message;
+  var activeClass = quantityStatus.activeClass;
+  var _removeClasses = quantityStatus.classes;
+
+  // селектор сообщения о статусе остатка
+  var $quantity = self.$quantity;
+
+  // считаем quantity товара
   if (!options.checkQuantityVariant) {
+    var templates = options.templates;
+    var classes = options.classes;
     var productQuantity = 0;
     $.each(self.productJSON.variants, function(index, el) {
       if (el.quantity) {
         productQuantity += el.quantity;
       }
     });
+
     quantity = productQuantity;
-  }
 
-  if (quantity <= options.quantityEnds) {
-    message = templates.quantityEnds;
-    activeClass = classes.quantityEnds;
-  }
-
-  if (options.checkQuantityVariant) {
-    if (!data.available) {
-      message = templates.quantityNotAvailable;
-      activeClass = classes.quantityNotAvailable;
-    }else{
-      if (quantity === null && typeof quantity === "object") {
-        message = templates[options.quantityNull];
-        activeClass = classes[options.quantityNull];
-      }
+    if (quantity <= options.quantityEnds) {
+      message = templates.quantityEnds;
+      activeClass = classes.quantityEnds;
     }
-  }else{
     if (!self.productJSON.available) {
       message = templates.quantityNotAvailable;
       activeClass = classes.quantityNotAvailable;
@@ -48,10 +43,8 @@ function renderQuantity(data) {
   }
 
   var status = getTemplate(message, '');
-  $quantity
-    .removeClass(classes.quantityEnds)
-    .removeClass(classes.quantityAlot)
-    .removeClass(classes.quantityNotAvailable)
+
+  $quantity.removeClass(_removeClasses);
 
   $quantity.html( status ).addClass(activeClass);
 }
