@@ -54,19 +54,13 @@ myVariants.setVariantByImage({
 });
 
 // Пример для слайдера swiper
-// setTimeout нужен для адекватного переключения вариантов, так как
-// callback onSlideChangeEnd срабатывает после анимации,
-// нужно откладывать выполнение функции на скорость анимации.
-// Баг хорошо прослеживается при быстром пролистывании слайдов.
 var galleryTop = new Swiper('.gallery-top', {
   onSlideChangeEnd: function (e) {
-    setTimeout(function () {
-      myVariants.setVariantByImage({
-        $form: $('.product-info form[data-product-id]'),
-        src: $(e.slides[e.activeIndex]).find('img').attr('src'),
-        size: 'original'
-      })
-    }, e.params.speed)
+    myVariants.setVariantByImage({
+      $form: $('.product-info form[data-product-id]'),
+      src: $(e.slides[e.activeIndex]).find('img').attr('src'),
+      size: 'original'
+    })
   }
 })
 ```
