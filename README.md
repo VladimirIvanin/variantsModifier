@@ -1,13 +1,5 @@
 # Плагин для обновления информации товара на платформе InSales
 
-> Совместимо только с common.js v2
-
-## CDN
-
-```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.2/dist/variantsModifier.js"></script>
-```
-
 :flower_playing_cards: поддержка изображений варианта
 
 :no_bell: обновление варианта без событий quantity
@@ -15,6 +7,14 @@
 :battery: статусы остатка варианта
 
 :pencil: возможность менять шаблоны для вывода информации на страницу
+
+:information_source: Совместимо только с common.js v2
+
+## CDN
+
+```
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.2/dist/variantsModifier.js"></script>
+```
 
 ```js
 var myVariants = new VariantsModifier ({
