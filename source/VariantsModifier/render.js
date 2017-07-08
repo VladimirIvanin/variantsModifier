@@ -70,7 +70,7 @@ function renderOldPrice(data) {
   var options = self.options;
   var classes = options.classes;
   var templates = options.templates;
-  var money = Shop.money.format(data.oldPrice);
+  var money = Shop.money.format(data.old_price);
   var oldPrice = getTemplate(templates.oldPrice, money);
   var emptyOldPrice = getTemplate(templates.emptyOldPrice, money);
 

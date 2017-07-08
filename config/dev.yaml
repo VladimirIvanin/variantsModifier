@@ -29,5 +29,5 @@ proxy:
   https: false
   serveStatic: ['.']
   rewriteRules:
-    - match: !!js/regexp /https://assets3.insales.ru/assets/\d{1,}/\d{1,}/\d{1,}/v_\d{1,}/build/modifier.js/
+    - match: !!js/regexp /https://assets3.insales.ru/assets/\d{1,}/\d{1,}/\d{1,}/v_\d{1,}/build/variantsModifier.js/
       replace: /test/variantsModifier.js
