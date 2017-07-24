@@ -13,7 +13,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.3/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.4/dist/variantsModifier.js"></script>
 ```
 
 ```js

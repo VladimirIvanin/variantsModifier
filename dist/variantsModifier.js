@@ -1,5 +1,5 @@
 /*!
- * VariantsModifier v0.4.3
+ * VariantsModifier v0.4.4
  * https://github.com/VladimirIvanin/VariantsModifier
  * Vladimir Ivanin
  * 2017
