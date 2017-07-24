@@ -12,7 +12,7 @@ function init() {
 
     if ($form && $form.instanceVariantsModifier) {
       // Обновление варианта может быть при пересчете quantity
-      var isQuantity = data.action.quantityState.change;
+      var isQuantity = data.action.quantityState.change || data.action.quantityState.less;
       if (!isQuantity) {
         $form.instanceVariantsModifier.updateVariant(data);
       }
