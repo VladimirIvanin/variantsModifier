@@ -74,7 +74,7 @@ function renderOldPrice(data) {
   var oldPrice = getTemplate(templates.oldPrice, money);
   var emptyOldPrice = getTemplate(templates.emptyOldPrice, money);
 
-  if (data.old_price) {
+  if (data.old_price && data.old_price > data.price) {
     $oldPrice.html( oldPrice );
     $form.addClass(classes.withOldPrice)
     $form.removeClass(classes.withoutOldPrice);
