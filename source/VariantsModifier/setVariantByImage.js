@@ -1,4 +1,5 @@
-function setVariantByImage(options) {
+function setVariantByImage(options, onSet) {
+  var _onSet = onSet || function () {};
   var $form = options.$form;
   var src = options.src;
   var size = options.size;
@@ -31,8 +32,13 @@ function setVariantByImage(options) {
         ModifierInstance.inProcess = false;
         ModifierInstance.activeImage = file;
         _product.variants.setVariant(variantId);
+        _onSet();
       })
+    }else{
+      _onSet()
     }
+  }else{
+    _onSet()
   }
 }
 

@@ -29,11 +29,12 @@ var defaults = {
     quantityAlot: 'is-quantity-alot',
     quantityNotAvailable: 'is-quantity-not-available'
   },
+  productGallery: null, // Слайдер с изображениями товара
   quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
-  initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
-  useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
+  initVariantImage: false, // Выбор слайда при инициализации?
+  updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
   checkQuantityVariant: true, // проверять остаток варианта? Иначе продукта.
@@ -41,6 +42,7 @@ var defaults = {
   dataParam: { // параметры первого уровня, задаются из дата атрибутов. Например data-quantity-null="quantityNotAvailable"
     quantityNull: 'quantity-null',
     quantityEnds: 'quantity-ends',
+    productGallery: 'product-gallery',
     checkQuantytiVariant: 'check-quantity-variant'
   },
   updatePrice: function () {}, // (data, $form)

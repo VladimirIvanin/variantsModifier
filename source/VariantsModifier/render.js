@@ -74,7 +74,7 @@ function renderOldPrice(data) {
   var oldPrice = getTemplate(templates.oldPrice, money);
   var emptyOldPrice = getTemplate(templates.emptyOldPrice, money);
 
-  if (data.old_price && data.old_price > data.price) {
+  if (data.old_price) {
     $oldPrice.html( oldPrice );
     $form.addClass(classes.withOldPrice)
     $form.removeClass(classes.withoutOldPrice);
@@ -157,17 +157,6 @@ function renderImage(data) {
     $thumb: $('[src*="thumb_'+filename+'"]'),
     $originals: $('[src$="'+filename+'"]')
   }
-
-  if (options.useTriggerThumb && self.isInitImage) {
-    var thumbSize = options.thumbSize;
-    var thumbWrap = options.thumbWrap;
-    var event = jQuery.Event( 'click' );
-    event['isModifier'] = true;
-    var $trigger =   $(''+thumbWrap+' [src*="'+thumbSize+'_'+filename+'"]').eq(0).parents(thumbWrap+':first');
-    $trigger.trigger( event );
-  }
-
-  self.isInitImage = true;
 
   self.options.updateImage(data, self.$form, $images, first_image, $links);
 }

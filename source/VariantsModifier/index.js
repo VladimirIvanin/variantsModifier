@@ -1,3 +1,5 @@
+/* global $ */
+
 var defaults = require('../variables').defaults;
 var init = require('./init');
 var setVariantByImage = require('./setVariantByImage');
@@ -5,7 +7,6 @@ var getQuantityMessage = require('./getQuantityMessage');
 
 var VariantsModifier = function (options) {
   var self = this;
-
   self.options = $.extend(true, {}, defaults, options);
 
   self.init = init;

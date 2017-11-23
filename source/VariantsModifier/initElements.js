@@ -8,6 +8,12 @@ function initElements() {
   self.$sku = $form.find(selectors.sku);
   self.$quantity = $form.find(selectors.quantity);
   self.$available = $form.find(selectors.available);
+
+  // если указана галлерея
+  if (self.options.productGallery) {
+    self.$productGallery = $(self.options.productGallery);
+  }
+
 }
 
 module.exports = initElements;

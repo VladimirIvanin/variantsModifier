@@ -13,7 +13,7 @@
 ## CDN
 
 ```
-  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.4.4/dist/variantsModifier.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/VladimirIvanin/variantsModifier@0.5.6/dist/variantsModifier.js"></script>
 ```
 
 ```js
@@ -44,8 +44,8 @@ var myVariants = new VariantsModifier ({
   quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
-  initVariantImage: false, // Кликнуть по миниатюре варианта при инициализации?
-  useTriggerThumb: true, // кликать по миниатюрам после смены варианта?
+  initVariantImage: false, // Выбор слайда при инициализации?
+  updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов 
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
   checkQuantityVariant: true, // проверять остаток варианта? Иначе продукта.
@@ -74,21 +74,11 @@ myVariants.setVariantByImage({
   src: 'https://static-eu.insales.ru/images/products/1/2587/85207579/variant_image.jpg',
   size: 'original'
 });
-
-// Пример для слайдера swiper
-var galleryTop = new Swiper('.gallery-top', {
-  onSlideChangeEnd: function (e) {
-    myVariants.setVariantByImage({
-      $form: $('.product-info form[data-product-id]'),
-      src: $(e.slides[e.activeIndex]).find('img').attr('src'),
-      size: 'original'
-    })
-  }
-})
 ```
 
 ```html
-<form id="product-form" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
+
+<form id="product-form" action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}" data-product-gallery=".js-product-gallery">
 
   <div class="product-available" data-product-available>
     {% if product.available %}
@@ -146,18 +136,12 @@ var galleryTop = new Swiper('.gallery-top', {
 
 - `data-quantity-message` - для сообщения о статусе остатка
 
+- `data-product-gallery` - Для связки формы и слайдера укажите атрибут data-product-gallery в теге form, в качестве значения передайте селектор слайдера. (Поддерживаются Swiper и SlickSlider)
+  
+
 ## Templates
 
 В templates `%s%` заменяется на значение из варианта.
-
-## Миниатюры
-
-В callback `updateImage` падает информация о всех узлах как то связанных с картинкой варианта. Чтобы узнать больше делайте `console.log` внутри колбека.
-
-- `thumbSize` - размер миниатюр `compact/large/medium/micro/thumb`, по размеру миниатюр происходит поиск.
-
-- `thumbWrap` - селектор кнопки переключения слайда в галарее фотографий.
-
 
 ## Classes
 
