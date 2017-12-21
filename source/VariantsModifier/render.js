@@ -54,7 +54,8 @@ function renderPrice(data) {
   var $price = self.$price;
   var options = self.options;
   var templates = options.templates;
-  var money = Shop.money.format(data.price);
+  var _price = (data.action && data.action.price) ? data.action.price : data.price;
+  var money = Shop.money.format(_price);
   var price = getTemplate(templates.price, money);
 
   $price.html( price );
