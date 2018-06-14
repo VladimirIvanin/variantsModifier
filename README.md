@@ -2,8 +2,6 @@
 
 :flower_playing_cards: поддержка изображений варианта
 
-:no_bell: обновление варианта без событий quantity
-
 :battery: статусы остатка варианта
 
 :pencil: возможность менять шаблоны для вывода информации на страницу
@@ -39,7 +37,7 @@ var myVariants = new VariantsModifier ({
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
   initVariantImage: false, // Выбор слайда при инициализации?
-  updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов 
+  updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов
   useToggleOldPrice: true, // использовать show/hide на old price?
   useToggleSku: true, // использовать show/hide на sku?
   checkQuantityVariant: true, // проверять остаток варианта? Иначе продукта.
@@ -131,7 +129,7 @@ myVariants.setVariantByImage({
 - `data-quantity-message` - для сообщения о статусе остатка
 
 - `data-product-gallery` - Для связки формы и слайдера укажите атрибут data-product-gallery в теге form, в качестве значения передайте селектор слайдера. (Поддерживаются Swiper и SlickSlider)
-  
+
 
 ## Templates
 

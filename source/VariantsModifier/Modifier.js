@@ -37,7 +37,7 @@ function Modifier ($form, options, action) {
   self.initElements();
 }
 
-Modifier.prototype.updateVariant = function (data) {
+Modifier.prototype.updateVariant = function (data, quantityChange) {
   var $form = (data.action.product) ? data.action.product[0] : null;
   var self = this;
   self.updateOption(data);
@@ -49,8 +49,10 @@ Modifier.prototype.updateVariant = function (data) {
   self.renderAvailable(data);
   self.renderSku(data);
   self.renderQuantity(data);
-  self.renderImage(data);
-  self.updateProductGallery(self.$productGallery, data);
+  if (!quantityChange) {  
+    self.renderImage(data);
+    self.updateProductGallery(self.$productGallery, data);
+  }
 
   self.options.updateVariant(data, $form);
 
