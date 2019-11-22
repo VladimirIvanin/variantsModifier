@@ -147,16 +147,17 @@ function renderImage(data) {
   var options = self.options;
   var first_image = data.first_image;
   var filename = data.first_image.filename;
+  var fileId = data.first_image.id;
 
-  var $links = $('[href*="'+filename+'"]');
+  var $links = $('[href*="'+fileId+'/'+filename+'"]');
   var $images = {
-    $all: $('[src*="'+filename+'"]'),
-    $compacts: $('[src*="compact_'+filename+'"]'),
-    $larges: $('[src*="large_'+filename+'"]'),
-    $mediums: $('[src*="medium_'+filename+'"]'),
-    $micros: $('[src*="micro_'+filename+'"]'),
-    $thumb: $('[src*="thumb_'+filename+'"]'),
-    $originals: $('[src$="'+filename+'"]')
+    $all: $('[src*="'+fileId+'/'+filename+'"]'),
+    $compacts: $('[src*="'+fileId+'/compact_'+filename+'"]'),
+    $larges: $('[src*="'+fileId+'/large_'+filename+'"]'),
+    $mediums: $('[src*="'+fileId+'/medium_'+filename+'"]'),
+    $micros: $('[src*="'+fileId+'/micro_'+filename+'"]'),
+    $thumb: $('[src*="'+fileId+'/thumb_'+filename+'"]'),
+    $originals: $('[src$="'+fileId+'/'+filename+'"]')
   }
 
   self.options.updateImage(data, self.$form, $images, first_image, $links);
