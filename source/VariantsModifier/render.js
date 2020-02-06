@@ -64,6 +64,7 @@ function renderPrice(data) {
 }
 
 function renderOldPrice(data) {
+  var _price = (data.action && data.action.price) ? data.action.price : data.price;
   var self = this;
   var $form = self.$form;
   var $oldPrice = self.$oldPrice;
@@ -75,7 +76,7 @@ function renderOldPrice(data) {
   var oldPrice = getTemplate(templates.oldPrice, money);
   var emptyOldPrice = getTemplate(templates.emptyOldPrice, money);
 
-  if (data.old_price) {
+  if (data.old_price && _.toFinite(data.old_price) > _.toFinite(_price)) {
     $oldPrice.html( oldPrice );
     $form.addClass(classes.withOldPrice)
     $form.removeClass(classes.withoutOldPrice);

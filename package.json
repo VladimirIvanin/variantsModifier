@@ -1,6 +1,6 @@
 {
   "name": "variantsModifier",
-  "version": "0.5.8",
+  "version": "0.6.0",
   "description": "Плагин для обновления информации товара на платформе InSales",
   "main": "dist/variantsModifier.js",
   "scripts": {
