@@ -36,6 +36,7 @@ var myVariants = new VariantsModifier ({
   quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
   thumbWrap: '.js-image-variant',
+  mainSize: '', // large_ , compact_ размер основной картинки
   initVariantImage: false, // Выбор слайда при инициализации?
   updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов
   useToggleOldPrice: true, // использовать show/hide на old price?

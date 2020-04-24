@@ -45,7 +45,7 @@ var updateProductGallery = function ($productGallery, data) {
       var name = slider.name;
       var Gallery = ($productGallery[0] && typeof $productGallery[0][name] != 'undefined' && $productGallery[0][name]) ? $productGallery[0][name] : false;
       if (Gallery && Gallery[slider.method]) {
-        var _index = $productGallery.find(slider.slideClass + ' [src*="'+data.image_id+'/'+self.activeImage+'"]').parents(slider.slideClass + ':first').index();
+        var _index = $productGallery.find(slider.slideClass + ' [src*="'+data.image_id+'/'+self.options.mainSize+self.activeImage+'"]').parents(slider.slideClass + ':first').index();
         self._slider = slider;
         self._gallery = Gallery;
         self._updateGallery = Gallery[slider.method];
@@ -58,7 +58,7 @@ var updateProductGallery = function ($productGallery, data) {
     var slider = self._slider;
     var Gallery = self._gallery;
 
-    var $image = $productGallery.find(slider.slideClass + ' [src*="'+data.image_id+'/'+self.activeImage+'"]');
+    var $image = $productGallery.find(slider.slideClass + ' [src*="'+data.image_id+'/'+self.options.mainSize+self.activeImage+'"]');
     var $slide = $image.parents(slider.slideClass + ':first');
     var _index = $slide.index();
 

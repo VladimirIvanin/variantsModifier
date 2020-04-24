@@ -32,6 +32,7 @@ var defaults = {
   productGallery: null, // Слайдер с изображениями товара
   quantityEnds: 10, // граница между заканчивается и много
   thumbSize: 'compact',
+  mainSize: '', // large_
   thumbWrap: '.js-image-variant',
   initVariantImage: false, // Выбор слайда при инициализации?
   updateVariantFromSlider: false, // Обновлять вариант при перелистывании слайдов
