@@ -129,7 +129,7 @@ myVariants.setVariantByImage({
 
 - `data-quantity-message` - для сообщения о статусе остатка
 
-- `data-product-gallery` - Для связки формы и слайдера укажите атрибут data-product-gallery в теге form, в качестве значения передайте селектор слайдера. (Поддерживаются Swiper и SlickSlider)
+- `data-product-gallery` - Для связки формы и слайдера укажите атрибут data-product-gallery в теге form, в качестве значения передайте селектор слайдера. (Поддерживаются Swiper v5 и SlickSlider)
 
 
 ## Templates

@@ -11,12 +11,12 @@ var updateProductGallery = function ($productGallery, data) {
     {
       name: 'swiper',
       method: 'slideTo', // метод установки слайда по индексу
-      onUpdate: 'onTransitionEnd',
-      onUpdateCallback: function (e) {
+      onUpdate: 'transitionEnd',
+      onUpdateCallback: function () {
         if (self._gallery) {
           setVariantByImage({
             $form: self.$form,
-            src: $(e.slides[e.activeIndex]).find('img').attr('src')
+            src: $(this.slides[this.activeIndex]).find('img').attr('src')
           });
         }
       },
